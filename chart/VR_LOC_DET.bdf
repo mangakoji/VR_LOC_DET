@@ -1,0 +1,589 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+//#pragma file_not_in_maxplusii_format
+(header "graphic" (version "1.3"))
+(properties
+	(page_setup "header_footer\nDate: %D\n%f\nProject: %j\n\nPage %p of %P\nRevision: %a\nmargin\n1\n1\n1\n1\norientation\n2\npaper_size\n9\npaper_source\n7\nfit_page_wide\n1\nfit_page_tall\n1\n")
+)
+(symbol
+	(rect 1712 -472 1752 -432)
+	(text "R" (rect 24 32 38 40)(font "Arial" (font_size 8))(vertical)(invisible))
+	(text "inst12" (rect 24 23 37 72)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+	(port
+		(pt 24 40)
+		(input)
+		(text "A" (rect 0 0 9 14)(font "Arial" (font_size 8)))
+		(text "A" (rect 8 23 22 32)(font "Arial" (font_size 8))(vertical)(invisible))
+		(line (pt 24 40)(pt 24 32)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 24 0)
+		(output)
+		(text "Y[7..0]" (rect -88 0 -51 14)(font "Arial" (font_size 8)))
+		(text "Y" (rect 8 7 22 16)(font "Arial" (font_size 8))(vertical)(invisible))
+		(line (pt 24 0)(pt 24 8)(color 128 0 255)(line_width 1))
+	)
+	(drawing
+		(line (pt 24 8)(pt 16 8)(line_width 1))
+		(line (pt 16 8)(pt 24 16)(line_width 1))
+		(line (pt 24 16)(pt 16 16)(line_width 1))
+		(line (pt 16 16)(pt 24 24)(line_width 1))
+		(line (pt 24 24)(pt 16 24)(line_width 1))
+		(line (pt 16 24)(pt 24 32)(line_width 1))
+	)
+	(rotate90)
+)
+(symbol
+	(rect 1760 -432 1800 -392)
+	(text "c" (rect 2 0 16 7)(font "Arial" (font_size 8))(vertical)(invisible))
+	(text "inst13" (rect 7 0 20 49)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+	(port
+		(pt 16 0)
+		(input)
+		(text "A" (rect 0 0 9 14)(font "Arial" (font_size 8)))
+		(text "A" (rect 18 8 32 17)(font "Arial" (font_size 8))(vertical)(invisible))
+		(line (pt 16 0)(pt 16 8)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 16 40)
+		(output)
+		(text "Y[7..0]" (rect -88 0 -51 14)(font "Arial" (font_size 8)))
+		(text "Y" (rect 18 24 32 33)(font "Arial" (font_size 8))(vertical)(invisible))
+		(line (pt 16 40)(pt 16 32)(color 128 0 255)(line_width 1))
+	)
+	(drawing
+		(line (pt 24 16)(pt 8 16)(line_width 1))
+		(line (pt 16 8)(pt 16 16)(line_width 1))
+		(line (pt 16 24)(pt 16 32)(line_width 1))
+		(line (pt 24 24)(pt 8 24)(line_width 1))
+	)
+	(rotate270)
+)
+(symbol
+	(rect 1760 -384 1792 -352)
+	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
+	(text "inst14" (rect 3 21 52 34)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 16 0)
+		(output)
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(line (pt 16 8)(pt 16 0)(line_width 1))
+	)
+	(drawing
+		(line (pt 8 8)(pt 16 16)(line_width 1))
+		(line (pt 16 16)(pt 24 8)(line_width 1))
+		(line (pt 8 8)(pt 24 8)(line_width 1))
+	)
+)
+(symbol
+	(rect 1968 -360 2032 -312)
+	(text "XNOR" (rect 1 0 28 10)(font "Arial" (font_size 6)))
+	(text "inst15" (rect 3 37 52 50)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 8 19 20)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 8 19 20)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 11 16)(line_width 1))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 11 32)(line_width 1))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 56 24)(pt 64 24)(line_width 1))
+	)
+	(drawing
+		(line (pt 14 13)(pt 25 13)(line_width 1))
+		(line (pt 14 36)(pt 25 36)(line_width 1))
+		(arc (pt 7 29)(pt 7 19)(rect -14 8 19 41)(line_width 1))
+		(arc (pt 49 24)(pt 25 13)(rect -6 13 57 76)(line_width 1))
+		(arc (pt 2 29)(pt 2 19)(rect -19 8 14 41)(line_width 1))
+		(arc (pt 25 35)(pt 49 24)(rect -6 -27 57 36)(line_width 1))
+		(circle (rect 48 20 56 28)(line_width 1))
+	)
+)
+(symbol
+	(rect 1968 -312 2032 -264)
+	(text "XNOR" (rect 1 0 28 10)(font "Arial" (font_size 6)))
+	(text "inst16" (rect 3 37 52 50)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 8 19 20)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 8 19 20)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 11 16)(line_width 1))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 11 32)(line_width 1))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 56 24)(pt 64 24)(line_width 1))
+	)
+	(drawing
+		(line (pt 14 13)(pt 25 13)(line_width 1))
+		(line (pt 14 36)(pt 25 36)(line_width 1))
+		(arc (pt 7 29)(pt 7 19)(rect -14 8 19 41)(line_width 1))
+		(arc (pt 49 24)(pt 25 13)(rect -6 13 57 76)(line_width 1))
+		(arc (pt 2 29)(pt 2 19)(rect -19 8 14 41)(line_width 1))
+		(arc (pt 25 35)(pt 49 24)(rect -6 -27 57 36)(line_width 1))
+		(circle (rect 48 20 56 28)(line_width 1))
+	)
+)
+(connector
+	(pt 1736 -480)
+	(pt 1736 -472)
+)
+(connector
+	(pt 1632 -408)
+	(pt 1632 -416)
+)
+(connector
+	(pt 1616 -488)
+	(pt 1616 -480)
+)
+(connector
+	(pt 1616 -416)
+	(pt 1616 -408)
+)
+(connector
+	(pt 1736 -432)
+	(pt 1736 -408)
+)
+(connector
+	(pt 1616 -408)
+	(pt 1632 -408)
+)
+(connector
+	(pt 1632 -408)
+	(pt 1736 -408)
+)
+(connector
+	(pt 1616 -416)
+	(pt 1632 -416)
+)
+(connector
+	(pt 1568 -384)
+	(pt 1448 -384)
+)
+(connector
+	(pt 1448 -440)
+	(pt 1568 -440)
+)
+(connector
+	(pt 1448 -440)
+	(pt 1448 -384)
+)
+(connector
+	(pt 1568 -440)
+	(pt 1568 -416)
+)
+(connector
+	(pt 1568 -416)
+	(pt 1568 -384)
+)
+(connector
+	(pt 1632 -480)
+	(pt 1632 -488)
+)
+(connector
+	(pt 1568 -456)
+	(pt 1448 -456)
+)
+(connector
+	(pt 1448 -512)
+	(pt 1568 -512)
+)
+(connector
+	(pt 1448 -512)
+	(pt 1448 -456)
+)
+(connector
+	(pt 1616 -480)
+	(pt 1632 -480)
+)
+(connector
+	(pt 1632 -480)
+	(pt 1736 -480)
+)
+(connector
+	(pt 1616 -488)
+	(pt 1632 -488)
+)
+(connector
+	(pt 1568 -512)
+	(pt 1568 -488)
+)
+(connector
+	(pt 1568 -488)
+	(pt 1568 -456)
+)
+(connector
+	(pt 1944 -336)
+	(pt 1920 -336)
+)
+(connector
+	(pt 1920 -304)
+	(pt 1944 -304)
+)
+(connector
+	(pt 1944 -288)
+	(pt 1920 -288)
+)
+(connector
+	(pt 1920 -256)
+	(pt 1944 -256)
+)
+(connector
+	(pt 1584 -488)
+	(pt 1584 -328)
+)
+(connector
+	(pt 1584 -328)
+	(pt 1920 -328)
+)
+(connector
+	(pt 1576 -416)
+	(pt 1576 -280)
+)
+(connector
+	(pt 1576 -280)
+	(pt 1920 -280)
+)
+(connector
+	(pt 1568 -488)
+	(pt 1584 -488)
+)
+(connector
+	(pt 1584 -488)
+	(pt 1616 -488)
+)
+(connector
+	(pt 1568 -416)
+	(pt 1576 -416)
+)
+(connector
+	(pt 1576 -416)
+	(pt 1616 -416)
+)
+(connector
+	(pt 1920 -336)
+	(pt 1920 -328)
+)
+(connector
+	(pt 1920 -328)
+	(pt 1920 -304)
+)
+(connector
+	(pt 1920 -288)
+	(pt 1920 -280)
+)
+(connector
+	(pt 1920 -280)
+	(pt 1920 -256)
+)
+(connector
+	(pt 1968 -280)
+	(pt 1944 -280)
+)
+(connector
+	(pt 1944 -288)
+	(pt 1944 -280)
+)
+(connector
+	(pt 1944 -280)
+	(pt 1944 -256)
+)
+(connector
+	(pt 1968 -328)
+	(pt 1944 -328)
+)
+(connector
+	(pt 1944 -336)
+	(pt 1944 -328)
+)
+(connector
+	(pt 1944 -328)
+	(pt 1944 -304)
+)
+(connector
+	(pt 1960 -296)
+	(pt 1968 -296)
+)
+(connector
+	(pt 1968 -344)
+	(pt 1960 -344)
+)
+(connector
+	(pt 1896 -456)
+	(pt 1896 -448)
+)
+(connector
+	(pt 1880 -456)
+	(pt 1880 -448)
+)
+(connector
+	(pt 1944 -456)
+	(pt 1920 -456)
+)
+(connector
+	(pt 1920 -424)
+	(pt 1944 -424)
+)
+(connector
+	(pt 1960 -448)
+	(pt 1944 -448)
+)
+(connector
+	(pt 1880 -448)
+	(pt 1896 -448)
+)
+(connector
+	(pt 1896 -448)
+	(pt 1920 -448)
+)
+(connector
+	(pt 1920 -456)
+	(pt 1920 -448)
+)
+(connector
+	(pt 1920 -448)
+	(pt 1920 -424)
+)
+(connector
+	(pt 1944 -456)
+	(pt 1944 -448)
+)
+(connector
+	(pt 1944 -448)
+	(pt 1944 -424)
+)
+(connector
+	(pt 1960 -448)
+	(pt 1960 -344)
+)
+(connector
+	(pt 1960 -344)
+	(pt 1960 -296)
+)
+(connector
+	(pt 2032 -288)
+	(pt 2056 -288)
+)
+(connector
+	(pt 2032 -336)
+	(pt 2056 -336)
+)
+(connector
+	(pt 2056 -384)
+	(pt 2056 -336)
+)
+(connector
+	(pt 2056 -384)
+	(pt 2208 -384)
+)
+(connector
+	(pt 2208 -344)
+	(pt 2240 -344)
+	(bus)
+)
+(connector
+	(pt 2240 -312)
+	(pt 2280 -312)
+)
+(connector
+	(pt 2240 -368)
+	(pt 2280 -368)
+)
+(connector
+	(pt 2240 -368)
+	(pt 2240 -344)
+)
+(connector
+	(pt 2240 -344)
+	(pt 2240 -312)
+)
+(connector
+	(pt 1776 -384)
+	(pt 1776 -392)
+)
+(connector
+	(pt 1736 -456)
+	(pt 1880 -456)
+)
+(connector
+	(pt 1880 -456)
+	(pt 1896 -456)
+)
+(connector
+	(pt 2056 -240)
+	(pt 2208 -240)
+)
+(connector
+	(pt 2056 -336)
+	(pt 2056 -288)
+)
+(connector
+	(pt 2056 -288)
+	(pt 2056 -240)
+)
+(connector
+	(pt 2208 -384)
+	(pt 2208 -344)
+)
+(connector
+	(pt 2208 -344)
+	(pt 2208 -240)
+)
+(connector
+	(pt 2320 -336)
+	(pt 2320 -344)
+	(bus)
+)
+(connector
+	(pt 2336 -344)
+	(pt 2336 -336)
+	(bus)
+)
+(connector
+	(pt 2320 -336)
+	(pt 2336 -336)
+	(bus)
+)
+(connector
+	(pt 2280 -368)
+	(pt 2280 -344)
+)
+(connector
+	(pt 2280 -344)
+	(pt 2280 -312)
+)
+(connector
+	(pt 2280 -344)
+	(pt 2320 -344)
+	(bus)
+)
+(connector
+	(pt 2320 -344)
+	(pt 2336 -344)
+	(bus)
+)
+(junction (pt 1632 -480))
+(junction (pt 1632 -408))
+(junction (pt 1616 -488))
+(junction (pt 1616 -416))
+(junction (pt 1568 -416))
+(junction (pt 1568 -488))
+(junction (pt 1576 -416))
+(junction (pt 1584 -488))
+(junction (pt 1920 -328))
+(junction (pt 1920 -280))
+(junction (pt 1944 -280))
+(junction (pt 1944 -328))
+(junction (pt 1960 -344))
+(junction (pt 1896 -448))
+(junction (pt 1920 -448))
+(junction (pt 1944 -448))
+(junction (pt 1880 -456))
+(junction (pt 2056 -288))
+(junction (pt 2056 -336))
+(junction (pt 2208 -344))
+(junction (pt 2240 -344))
+(junction (pt 2280 -344))
+(junction (pt 2320 -344))
+(text "1~1000pF" (rect 1304 240 1370 253)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "(Variable Register Location Detector)" (rect 1624 -584 2104 -563)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 16)))
+(text "VR_LOC_DET" (rect 1432 -600 1620 -567)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 24)))
+(text "2017-04-09su" (rect 1624 -608 1723 -595)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "10kB" (rect 1720 -504 1753 -491)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "GALOIS_LFSR" (rect 1456 -504 1546 -491)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "random generator" (rect 1456 -488 1588 -475)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "33bitMSEQ" (rect 1472 -472 1546 -459)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "GALOIS_LFSR" (rect 1456 -432 1546 -419)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "33bitMSEQ" (rect 1472 -400 1546 -387)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "random generator" (rect 1456 -416 1588 -403)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "another start SEED" (rect 1448 -376 1596 -363)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "TPAT_P" (rect 1576 -504 1625 -491)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "TPAT_N" (rect 1576 -432 1625 -419)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "D" (rect 1928 -448 1936 -435)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "D" (rect 1928 -328 1936 -315)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "D" (rect 1928 -280 1936 -267)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "compare" (rect 1976 -384 2033 -371)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "CMP_P" (rect 2064 -336 2105 -323)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "CMP_N" (rect 2064 -288 2105 -275)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "P" (rect 2120 -360 2128 -347)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "N" (rect 2136 -360 2144 -347)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 2120 -336 2128 -323)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 2136 -336 2144 -323)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 2120 -312 2128 -299)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 2136 -312 2144 -299)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 2120 -288 2128 -275)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 2136 -288 2144 -275)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 2120 -264 2128 -251)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 2136 -264 2144 -251)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FF" (rect 2160 -336 2176 -323)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "80" (rect 2160 -312 2176 -299)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "80" (rect 2160 -288 2176 -275)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "01" (rect 2160 -264 2176 -251)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "IIR" (rect 2248 -360 2272 -347)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "LPF" (rect 2248 -336 2272 -323)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "/8" (rect 2216 -360 2232 -347)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "h80 offseted" (rect 2216 -304 2315 -291)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "/8" (rect 2288 -360 2304 -347)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "fclock=48MHz" (rect 1440 -296 1539 -283)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "maybe can be shorter" (rect 1432 -352 1597 -339)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "Variable Register" (rect 1672 -520 1812 -507)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "capastance" (rect 1808 -416 1890 -403)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "parasite" (rect 1808 -432 1874 -419)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "TEST_SYSTEM" (rect 1448 -104 1655 -71)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 24)))
+(text "level_convert table" (rect 2072 -400 2228 -387)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_CK='1'" (rect 1440 -280 1514 -267)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "LOC_o/8" (rect 2280 -384 2337 -371)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_i" (rect 1896 -480 1937 -467)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "VR_LOC_DET_TOP" (rect 1632 -88 1747 -75)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(line (pt 1776 -456)(pt 1808 -456)(color 0 0 0)(dashed)(line_width 1))
+(line (pt 1624 -544)(pt 1624 -352)(line_width 1))
+(line (pt 1624 -352)(pt 1888 -352)(line_width 1))
+(line (pt 2120 -344)(pt 2192 -344)(line_width 1))
+(line (pt 2152 -360)(pt 2152 -248)(line_width 1))
+(line (pt 1888 -352)(pt 1888 -544)(line_width 1))
+(line (pt 1776 -456)(pt 1776 -432)(color 0 0 0)(dashed)(line_width 1))
+(line (pt 1624 -544)(pt 1424 -544)(line_width 1))
+(line (pt 2328 -544)(pt 2328 -216)(line_width 1))
+(line (pt 1424 -544)(pt 1424 -216)(line_width 1))
+(line (pt 1424 -216)(pt 2328 -216)(line_width 1))
+(line (pt 1888 -544)(pt 2328 -544)(line_width 1))
