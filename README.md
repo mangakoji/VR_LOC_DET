@@ -36,7 +36,7 @@ VRLOC_DAT_i[1] ;connect 2nd potentiometer B pin
 VRLOC_PTRN_[P:N]_o ; connect 1st and 2nd potentiometer A,C pin
 
 and 
-VRLOC[15:0]_o ; 2nd potentiometer location,you get.
+VRLOC[15:8]_o ; 2nd potentiometer location,you get.
 ```
 ## Features
 
