@@ -28,7 +28,13 @@ chart/VR_LOC_DET.bdf on Quartus
 sorry I'dont know detail of this system is active well.
 this system depend on transient , but I can't understand detail of FPGA Input transient.
  
+## log
+20170525th support multi potentiometer,
+parameter C_CH_N =2 ; for 2 potentiometer using.
+VRLOC_DAT_i[1] ;connect 2nd potentiometer B pin
+VRLOC_PTRN_[P:N]_o ; connect 1st and 2nd potentiometer A,C pin
 
+and VRLOC[15:0]_o ; 2nd potentiometer location,you get.
 
 ## Features
 

@@ -1,21 +1,23 @@
 //VR_LOC_DET.v
 //  VR_LOC_DET 
 //  volume(Variable Register) location ditector
-//
+//170525th  003 :support multi potention memter , ch_n split.
 //170407f   002 :P-N combinearign center but...
 //170326u   001 :new for VR_LOC_DET
 //
 
-module VR_LOC_DET(
-      input     CK_i
-    , input     XARST_i
-    , input  tri1 EN_CK_i
-    , output        TPAT_P_o
-    , output        TPAT_N_o
-    , input         DAT_i
-    , output [ 7:0] LOC_o
-    , output        CMP_P_o
-    , output        CMP_N_o
+module VR_LOC_DET #(
+    parameter C_CH_N = 1
+)(
+      input                     CK_i
+    , input                     XARST_i
+    , input  tri1               EN_CK_i
+    , output                    TPAT_P_o
+    , output                    TPAT_N_o
+    , input  [C_CH_N-1 :0]      DAT_i
+    , output [C_CH_N*8-1 :0]    LOC_o
+    , output [C_CH_N-1 :0]      CMP_P_o
+    , output [C_CH_N-1 :0]      CMP_N_o
 
 ) ;
     function integer log2;
@@ -88,79 +90,88 @@ module VR_LOC_DET(
                     MSEQ_N_D[0] <= MSEQ_N ;
     endgenerate
 
-    reg [C_DAT_DLY-1:0] DAT_D ;
+    reg [C_DAT_DLY-1:0] DAT_D [0 : C_CH_N-1];
+    genvar g_ch ;
     generate
-        if (C_DAT_DLY > 1)
-            always @(posedge CK_i or negedge XARST_i)
-                if ( ~ XARST_i)
-                    DAT_D <= {C_DAT_DLY{1'b0}} ;
-                else
-                    DAT_D <= {DAT_i , DAT_D[C_DAT_DLY-1:1]} ;
-        else
-            always @(posedge CK_i or negedge XARST_i)
-                if ( ~ XARST_i)
-                    DAT_D[0] <= 1'b0 ;
-                else
-                    DAT_D[0] <= DAT_i ;
+        for (g_ch=0 ; g_ch<C_CH_N ; g_ch=g_ch+1) begin:gen_DLY
+            if (C_DAT_DLY > 1)
+                always @(posedge CK_i or negedge XARST_i)
+                    if ( ~ XARST_i)
+                        DAT_D[g_ch] <= {C_DAT_DLY{1'b0}} ;
+                    else
+                        DAT_D[g_ch] <= {DAT_i[g_ch] , DAT_D[g_ch][C_DAT_DLY-1:1]} ;
+            else
+                always @(posedge CK_i or negedge XARST_i)
+                    if ( ~ XARST_i)
+                        DAT_D[g_ch][0] <= 1'b0 ;
+                    else
+                        DAT_D[g_ch][0] <= DAT_i[g_ch] ;
+        end
     endgenerate
 
 
-    wire    CMP_P_a ;
-    assign CMP_P_a = MSEQ_P_D[0] == DAT_D[0] ;
-    wire    CMP_N_a ;
-    assign CMP_N_a = MSEQ_N_D[0] == DAT_D[0] ;
-    reg     CMP_P   ;
-    reg     CMP_N   ;
-    always @(posedge CK_i or negedge XARST_i)
-        if ( ~ XARST_i ) begin
-            CMP_P <= 1'b0 ;
-            CMP_N <= 1'b0 ;
-        end else begin
-            CMP_P <= CMP_P_a ;
-            CMP_N <= CMP_N_a ;
+    wire    [C_CH_N-1:0]    CMP_P_a ;
+    wire    [C_CH_N-1:0]    CMP_N_a ;
+    reg     [C_CH_N-1:0]    CMP_P   ;
+    reg     [C_CH_N-1:0]    CMP_N   ;
+    generate
+        for (g_ch=0 ; g_ch<C_CH_N ; g_ch=g_ch+1) begin:gen_CMP
+            assign CMP_P_a[g_ch] = MSEQ_P_D[0] == DAT_D[g_ch][0] ;
+            assign CMP_N_a[g_ch] = MSEQ_N_D[0] == DAT_D[g_ch][0] ;
+            always @(posedge CK_i or negedge XARST_i)
+                if ( ~ XARST_i ) begin
+                    CMP_P[g_ch] <= 1'b0 ;
+                    CMP_N[g_ch] <= 1'b0 ;
+                end else begin
+                    CMP_P[g_ch] <= CMP_P_a[g_ch] ;
+                    CMP_N[g_ch] <= CMP_N_a[g_ch] ;
+                end
+            assign CMP_P_o[g_ch] = CMP_P[g_ch] ;
+            assign CMP_N_o[g_ch] = CMP_N[g_ch] ;
         end
-            
-    assign CMP_P_o = CMP_P ;
-    assign CMP_N_o = CMP_N ;
+    endgenerate
 
-
-    wire    [ 1 :0] LOC_PN   ;
-    assign LOC_PN = {CMP_P , ~ CMP_N} ;
-    wire    [ 8 :0] LOC_AQ ;
-    IIR_LPF #(
-          .C_DAT_W  ( 9    )
-        , .C_SHIFT  ( 17    )   //=17 in CK_EN 48MHz ,tau ?=2.73ms,fc=58.3Hz
-                                // fc = fck/(2*pi*((2**C_SHIFT)))
-                                // (2**C_SHIFT) = fck/fc/2/pi
-                                // C_SHIFT = log((fck/fc/2/pi) , 2)
-    ) u_IIR_LPF_PN (
-          .CK_i     ( CK_i          )
-        , .XARST_i  ( XARST_i       )
-        , .EN_CK_i  ( 1'b1          )
-        , .DAT_i    ( 
-            (LOC_PN == 2'b11) ? 
-                9'h1FF
-            : (LOC_PN == 2'b00) ?
-                9'h001
-            :
-                9'h100
-        )
-        , .QQ_o     ( LOC_AQ       )
-        , .SIGMA_o  ()
-    ) ;
-    reg [ 7 :0] LOC ;
-    always @ (posedge CK_i or negedge XARST_i)
-        if ( ~ XARST_i )
-            LOC <= 8'h80 ;
-        else
-            if (LOC_AQ[8:7] == 2'b11)
-                LOC <= 8'hFF ;
-            else if (LOC_AQ[8:7] == 2'b00)
-                LOC <= 8'h01 ;
+    wire    [ 1 :0] LOC_PN  [0:C_CH_N-1];
+    wire    [ 8 :0] LOC_AQ  [0:C_CH_N-1];
+    reg     [ 7 :0] LOC     [0:C_CH_N-1];
+    generate
+        for (g_ch=0 ; g_ch<C_CH_N ; g_ch=g_ch+1) begin:gen_IIR_LOC
+            assign LOC_PN[g_ch] = {CMP_P[g_ch] , ~ CMP_N[g_ch]} ;
+            IIR_LPF #(
+                  .C_DAT_W  ( 9    )
+                , .C_SHIFT  ( 17    )   //=17 in CK_EN 48MHz 
+                                        // ,tau ?=2.73ms,fc=58.3Hz
+                                        // fc = fck/(2*pi*((2**C_SHIFT)))
+                                        // (2**C_SHIFT) = fck/fc/2/pi
+                                        // C_SHIFT = log((fck/fc/2/pi) , 2)
+                ) u_IIR_LPF_PN (
+                  .CK_i     ( CK_i          )
+                , .XARST_i  ( XARST_i       )
+                , .EN_CK_i  ( 1'b1          )
+                , .DAT_i    ( 
+                        (LOC_PN[g_ch] == 2'b11) ? 
+                            9'h1FF
+                        : (LOC_PN[g_ch] == 2'b00) ?
+                            9'h001
+                        :
+                            9'h100
+                )
+                , .QQ_o     ( LOC_AQ[g_ch]  )
+                , .SIGMA_o  ()
+            ) ;
+            always @ (posedge CK_i or negedge XARST_i)
+                if ( ~ XARST_i )
+                LOC[g_ch] <= 8'h80 ;
             else
-                LOC <= {~LOC_AQ[7] , LOC_AQ[6:0]} ;
-
-    assign LOC_o = LOC ;
+                if (LOC_AQ[g_ch][8:7] == 2'b11)
+                    LOC[g_ch] <= 8'hFF ;
+                else if (LOC_AQ[g_ch][8:7] == 2'b00)
+                    LOC[g_ch] <= 8'h01 ;
+                else
+                    LOC[g_ch] <= {~LOC_AQ[g_ch][7] , LOC_AQ[g_ch][6:0]} ;
+            assign LOC_o[g_ch*8 +: 8] = LOC[g_ch] ;
+        end
+    endgenerate
 
 
 endmodule //VR_LOC_DET
